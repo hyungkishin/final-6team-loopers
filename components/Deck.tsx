@@ -102,6 +102,19 @@ export function Deck() {
     return () => window.removeEventListener("keydown", onKey);
   }, [next, prev, goTo, total]);
 
+  const onClick = (e: React.MouseEvent) => {
+    if (overviewOpen) return;
+    if (
+      e.target instanceof HTMLElement &&
+      e.target.closest("button, a, input, textarea, [data-no-advance]")
+    )
+      return;
+    const x = e.clientX - e.currentTarget.getBoundingClientRect().left;
+    const w = (e.currentTarget as HTMLElement).clientWidth;
+    if (x > w / 2) next();
+    else prev();
+  };
+
   const onTouchStart = (e: React.TouchEvent) => {
     const t = e.touches[0];
     touchStart.current = { x: t.clientX, y: t.clientY };
@@ -122,7 +135,8 @@ export function Deck() {
 
   return (
     <div
-      className="relative h-dvh w-full overflow-hidden bg-(--color-paper) text-(--color-ink)"
+      className="relative h-dvh w-full overflow-hidden bg-(--color-paper) text-(--color-ink) cursor-pointer"
+      onClick={onClick}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
