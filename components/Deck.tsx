@@ -19,11 +19,7 @@ const VARIANTS = {
   }),
 };
 
-const OUTRO_AUDIO_SRC = encodeURI(
-  "/전영호_01_Butter_Fly_Butter_Fly (디지몬 어드벤처)_320.mp3",
-);
-const AUDIO_START_SLIDE_ID = "lesson";
-const AUDIO_END_SLIDE_ID = "farewell";
+const OUTRO_AUDIO_SRC = "/butterfly.mp3";
 
 export function Deck() {
   const [[index, dir], setIndex] = useState<[number, number]>([0, 0]);
@@ -62,19 +58,8 @@ export function Deck() {
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    const startIdx = slides.findIndex((s) => s.id === AUDIO_START_SLIDE_ID);
-    const endIdx = slides.findIndex((s) => s.id === AUDIO_END_SLIDE_ID);
-    const inRange = index >= startIdx && index <= endIdx;
-    if (inRange) {
-      audio.volume = 0.6;
-      if (current.id === AUDIO_START_SLIDE_ID && audio.paused) {
-        audio.currentTime = 0;
-      }
-      audio.play().catch(() => {});
-    } else {
-      if (!audio.paused) audio.pause();
-      audio.currentTime = 0;
-    }
+    audio.volume = 0.6;
+    audio.play().catch(() => {});
   }, [current, index]);
 
   useEffect(() => {

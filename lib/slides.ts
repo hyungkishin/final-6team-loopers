@@ -99,6 +99,8 @@ const I = {
   holiday: { src: "/images/연휴에도 열심히 우리를 붙잡아 주던 엔젤.png", w: 1320, h: 1118 },
   healing: { src: "/images/멘토님의 힐링 페이퍼.png", w: 1290, h: 2796 },
   midNetwork: { src: "/images/중간 네트워크.jpeg", w: 1024, h: 1536 },
+  listenToMe: { src: "/images/내말좀들어보라니까.jpeg", w: 1440, h: 1080 },
+  wrapup: { src: "/images/마무리.jpeg", w: 4032, h: 3024 },
   writingFail: { src: "/images/글을 결국못씀.jpeg", w: 1548, h: 578 }, // TODO: 실제 이미지 넣고 크기 맞추기
   happiness: { src: "/images/행복하시길....png", w: 1672, h: 941 },
   ren: { src: "/images/렌.png", w: 1996, h: 1264 },
@@ -349,6 +351,15 @@ export const slides: Slide[] = [
     sticker: "NETWORK",
   },
   {
+    kind: "photo",
+    id: "listen-to-me",
+    image: I.listenToMe,
+    caption: "내 말 좀 들어달라니까…",
+    drip: "네트워크 한답시고 모였는데, 각자 할 말만 쏟아내는 중. 듣는 사람 없음.",
+    rotate: 2.4,
+    sticker: "제발",
+  },
+  {
     kind: "week",
     id: "w7",
     week: 7,
@@ -481,6 +492,15 @@ export const slides: Slide[] = [
     title: "10주, 함께해서 고마웠습니다.",
     body: "1~7 팀분들 과 함께 많이 배웠고, 오프라인에서 술도 마시고, 가끔 막막한 과제도 있었지만. 그래도 여기까지 왔네요, '다음 스터디' 열어서 또 봬요 :) .",
     signature: "— 6팀 일동 드림",
+  },
+  {
+    kind: "photo",
+    id: "wrapup",
+    image: I.wrapup,
+    caption: "10주, 고생 많았어요.",
+    drip: "마지막 날, 우리가 남긴 장면 하나. 고생한 얼굴들, 웃고 있는 얼굴들.",
+    rotate: 1.5,
+    sticker: "FIN",
   },
   {
     kind: "photo",
